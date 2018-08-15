@@ -3,22 +3,19 @@ import Link from 'gatsby-link'
 
 const IndexPage = ({data}) => (
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-    <h2>Index</h2>
-    <ul>
+    <div className="articles">
     {data.allMarkdownRemark.edges.map(post => (
-      <li>
-        <Link 
-          key={post.node.id}
-          href={post.node.frontmatter.path}>
-          {post.node.frontmatter.title}
-        </Link>
-      </li>
+      <Link  
+        key={post.node.id}
+        to={post.node.frontmatter.path}
+        className="article shadow">
+            <h1>{post.node.frontmatter.title}</h1>
+            <h5 className="author">{post.node.frontmatter.author}</h5>
+            <h5 className="tag">{post.node.frontmatter.tag}</h5>
+      </Link>
     ))}
-    </ul>
+    </div>
+    
   </div>
 )
 
@@ -37,7 +34,9 @@ export const pageQuery = graphql`
                   title
                   path
                   published
+                  author
                   date
+                  tag
                 }
             }
         }
