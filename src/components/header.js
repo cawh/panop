@@ -42,7 +42,7 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className="header">
+      <div className="header outer">
         <Link  className="logo" to="/" >
           <img src={logo} />
         </Link>
@@ -126,14 +126,16 @@ class Tag extends React.Component {
 
   render(){
     return(
-      <div  style={{
-              backgroundColor: (this.state.tag.selected ? this.state.tag.color : '')
-            }}
-            className={"tag shadow " + (this.state.tag.selected ? 'selected ' : '')} 
-            onClick={() => this.props.markTag(this.state.tag.id)}>
+      <button  
+        style={{
+          backgroundColor: (this.state.tag.selected ? this.state.tag.color : '')
+        }}
+        className={"tag " + (this.state.tag.selected ? 'selected ' : '')} 
+        onClick={() => this.props.markTag(this.state.tag.id)} 
+        >
         <p>{this.state.tag.name}</p>
         <img className="closeIcon icon" src={iconClose}/>
-      </div>
+      </button>
     )
   }
 }

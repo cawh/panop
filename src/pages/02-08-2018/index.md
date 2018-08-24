@@ -5,6 +5,7 @@ published: true
 date: '2018-08-01'
 author: 'Nathan Lawson McClean'
 tag: 'Contextual Design'
+ranking: '1'
 ---
 
 Hello this is our first blog post

@@ -7,6 +7,7 @@ export default function Template({data}) {
         <div>
             <h1>{post.frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{__html: post.html}}/>
+            <h1>{post.frontmatter.author}</h1>
         </div>
     )
 }
@@ -18,6 +19,7 @@ export const postQuery = graphql`
             frontmatter {
                 path
                 title
+                author
             }
         }
     }

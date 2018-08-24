@@ -5,6 +5,7 @@ published: true
 date: '2018-08-14'
 author: 'Caleb Whitmore'
 tag: 'Portfolio'
+ranking: '3'
 ---
 
-Hello this is our Second blog post
+Hello this is our fourth blog post

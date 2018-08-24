@@ -31,21 +31,53 @@ $theme-yellow: #FAAF33;
 $overlayDark24: rgba(0,0,0,0.24);
 $overlayLight24: rgba(255,255,255,0.24);
 
-.icon {
-  width:16px;
-  height:16px;
+.outer {
+  max-width:960px;
+  display:grid;
+  margin: 0px auto;
+}
+
+.transition30 {
   transition:0.3s all ease;
   -webkit-transition:0.3s all ease;
 }
 
-.shadow {
-  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.12);
-  -webkit-transition:0.3s all ease;
+.icon {
+  @extend .transition30;
+  width:16px;
+  height:16px;
+}
+
+.shadow-medium {
+  @extend .transition30;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.24);
 
   &:hover {
-    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.12);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.24);
     cursor: pointer;
     transform: translate(0px,-1px);
+  }
+}
+
+.shadow-small {
+  @extend .transition30;
+  box-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.24);
+
+  &:hover {
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.24);
+    cursor: pointer;
+    transform: translate(0px,-1px);
+  }
+}
+
+
+.inset-shadow {
+  @extend .transition30;
+  box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.12);
+
+  &:hover {
+    box-shadow: inset 0px 0.5px 4px 0px rgba(0,0,0,0.12);
+    cursor: pointer;
   }
 }
 
@@ -54,6 +86,7 @@ a {
 }
 
 h1,h2,h3,h4 {
+  width:auto;
   font-family: Roboto;
   font-weight: 600;
   color: $neutral-dark;
@@ -78,10 +111,11 @@ h4 {
 }
 
 h5 {
+  width:auto;
   font-family:roboto;
   font-weight:400;
   font-size:10px;
-  letter-spacing: 0.8px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color:$neutral;
   margin-top:7px;
@@ -132,6 +166,15 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+button, a {
+  border: none;
+  
+  &:focus{
+    outline:none
+  }
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
@@ -142,7 +185,6 @@ pre tt:after {
 .header {
   background-color:transparent;
   height:260px;
-  width:100vw;
   display:grid;
   justify-items:center;
   position:relative;
@@ -159,29 +201,25 @@ pre tt:after {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items:center;
-    max-width:960px;
-    margin: 0 auto;
 
     .tag {
+      @extend .transition30;
+      @extend .shadow-medium;
       align-self: center;
       padding:0px;
       border-radius:8px;
       background-color: $white;
-      transition:0.3 all ease;
       display:flex;
-      transition:0.3s all ease;
-      -webkit-transition:0.3s all ease;
 
       p {
+        @extend .transition30;
         margin:12px;
         text-transform: uppercase;
         font-size:14px;
-        letter-spacing: 2px;
-        color:$neutral-dark; 
+        letter-spacing: 2.4px;
+        color:$neutral; 
         font-weight:300; 
         user-select: none;
-        transition:0.3s all ease;
-        -webkit-transition:0.3s all ease;
       }
 
       .closeIcon {
@@ -218,15 +256,92 @@ pre tt:after {
 
 .articles {
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto;
   grid-auto-rows: 320px;
   grid-gap: 16px;
   margin:32px 0px;
 
   .article {
-    grid-template-columns: 2fr;
+    @extend .shadow-small;
     background-color:$white;
     padding:16px;
-    grid-auto-columns: 2fr;
+
+    h1 {
+      color:$neutral-dark;
+    }
+
+    div {
+      overflow:hidden;
+      
+      img {
+        width: 100%; 
+      }
+    }
+  }
+
+  .ranking-1 {
+    grid-template-columns: 12fr;
+    width:960px;
+  }
+
+  .ranking-2 {
+    grid-template-columns: 6fr;
+  }
+
+  .ranking-3 {
+
+  }
+
+  .ranking-4 {
+
+  }
+
+  .ranking-5 {
+
+  }
+}
+
+.footer {
+  width:100%;
+
+  .externalLinks {
+    width:50%;
+    margin: 0px auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display:grid;
+    justify-items:center;
+
+    .externalLink {
+      @extend .transition30;
+      @extend .inset-shadow;
+      padding:0px 10px;
+      border-radius: 4px;
+      
+      h5 {
+        @extend .transition30;
+        color:$neutral-light;
+      }
+      &:hover {
+
+        h5 {
+          color:$neutral;
+          transform: translate(0px, 1px);
+        }
+      }
+
+      &:focus {
+        background-color:$neutral-lighter;
+      }
+    }
+  }
+  .copywrite {
+    font-size:12px;
+    line-height:16px;
+    color:$neutral-light;
+    text-align: center;
+    width:50%;
+    margin: 0px auto;
+    margin-top:24px;
+    margin-bottom:56px;
   }
 }

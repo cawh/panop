@@ -28,7 +28,8 @@ class Footer extends React.Component {
                     url: '/',
                     key: 3,
                 }
-            ]
+            ],
+            copywrite: 'The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of PANOP.',
         }
     }
 
@@ -36,8 +37,15 @@ class Footer extends React.Component {
     render(){
 
         return(
-            <div className="footer">
-
+            <div className="footer outer">
+                <div className="externalLinks">
+                    {this.state.links.map((externalLink) =>
+                        <Link className="externalLink" to="/">
+                            <h5>{externalLink.name}</h5>
+                        </Link>
+                    )}
+                </div>
+                <p className="copywrite">{this.state.copywrite}</p>
             </div>
         )
     }

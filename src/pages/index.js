@@ -8,7 +8,9 @@ const IndexPage = ({data}) => (
       <Link  
         key={post.node.id}
         to={post.node.frontmatter.path}
-        className="article shadow">
+        className={"article shadow ranking-" + post.node.frontmatter.ranking}>
+            <div className="thumbnail-image">
+            </div>
             <h1>{post.node.frontmatter.title}</h1>
             <h5 className="author">{post.node.frontmatter.author}</h5>
             <h5 className="tag">{post.node.frontmatter.tag}</h5>
@@ -37,6 +39,7 @@ export const pageQuery = graphql`
                   author
                   date
                   tag
+                  ranking
                 }
             }
         }
