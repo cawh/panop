@@ -14,6 +14,7 @@ const IndexPage = ({data}) => (
             <h1>{post.node.frontmatter.title}</h1>
             <h5 className="author">{post.node.frontmatter.author}</h5>
             <h5 className="tag">{post.node.frontmatter.tag}</h5>
+            <img src={post.node.frontmatter.thumbnail.childImageSharp.sizes.src}/>
       </Link>
     ))}
     </div>
@@ -40,6 +41,15 @@ export const pageQuery = graphql`
                   date
                   tag
                   ranking
+                  thumbnail {
+                    childImageSharp {
+                      sizes(maxWidth: 400) {
+                        src
+                        srcSet
+                        sizes   
+                      }
+                    }
+                  }
                 }
             }
         }

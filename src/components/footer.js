@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import logo from '../assets/logo/logo.svg'
 import { timingSafeEqual } from 'crypto';
 
 class Footer extends React.Component {
@@ -40,13 +39,21 @@ class Footer extends React.Component {
             <div className="footer outer">
                 <div className="externalLinks">
                     {this.state.links.map((externalLink) =>
-                        <Link className="externalLink" to="/">
-                            <h5>{externalLink.name}</h5>
-                        </Link>
+                        <ExternalLink externalLink={externalLink} key={externalLink.key} />
                     )}
                 </div>
                 <p className="copywrite">{this.state.copywrite}</p>
             </div>
+        )
+    }
+}
+
+class ExternalLink extends React.Component {
+    render(){
+        return(
+            <Link className="externalLink" to="/">
+                <h5>{this.props.externalLink.name}</h5>
+            </Link>
         )
     }
 }
