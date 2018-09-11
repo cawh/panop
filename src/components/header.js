@@ -4,47 +4,21 @@ import logo from '../assets/logo/logo.svg'
 import iconChevronLeft from '../assets/icon/chevron-left.svg'
 import iconChevronRight from '../assets/icon/chevron-Right.svg'
 import iconClose from '../assets/icon/close.svg'
-import { timingSafeEqual } from 'crypto';
 
 class Header extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      smallHeader: false,
-      scrollTop: event.srcElement.body.scrollTop
+      logo: logo,
+      expanded:true,
     }
   }
-
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.handleScroll);
-  // }
-
-  // componentWillUnmount() {
-  //     window.removeEventListener('scroll', this.handleScroll);
-  // }
-
-  // makeHeaderSmall() {
-  //   let newState = {...this.state}
-  //   newState.smallHeader = true
-  //   this.setState(newState)
-  // }
-
-  // makeHeaderLarge() {
-  //   let newState = {...this.state}
-  //   newState.smallHeader = false
-  //   this.setState(newState)
-  // }
-  
-
-  // handleScroll() {
-  //   ((this.state.scrollTop >= 200) ? this.makeHeaderSmall : this.makeHeaderLarge)
-  // }
 
   render(){
     return(
       <div className="header outer">
         <Link  className="logo" to="/" >
-          <img src={logo} />
+          <img src={this.state.logo} />
         </Link>
         <Menu />
       </div>
@@ -105,7 +79,7 @@ class Menu extends React.Component {
               id={tag.key} 
               selected={tag.selected} 
               color={tag.color} 
-              markTag={this.markTag}  />
+              markTag={this.markTag} />
       )}
       </div>
     )

@@ -6,8 +6,9 @@ export default function Template({data}) {
     return (
         <div>
             <h1>{post.frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{__html: post.html}}/>
             <h1>{post.frontmatter.author}</h1>
+            <img src={post.frontmatter.thumbnail.childImageSharp.sizes.src} />
+            <div dangerouslySetInnerHTML={{__html: post.html}}/>
         </div>
     )
 }
@@ -20,6 +21,15 @@ export const postQuery = graphql`
                 path
                 title
                 author
+                thumbnail {
+                    childImageSharp {
+                        sizes(maxWidth: 400) {
+                            src
+                            srcSet
+                            sizes   
+                        }
+                    }
+                }
             }
         }
     }
