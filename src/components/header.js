@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import logo from '../assets/logo/logo.svg'
+import logoLarge from '../assets/logo/logo-large.svg'
+import logoSmall from '../assets/logo/logo-small.svg'
 import iconChevronLeft from '../assets/icon/chevron-left.svg'
 import iconChevronRight from '../assets/icon/chevron-Right.svg'
 import iconClose from '../assets/icon/close.svg'
@@ -9,77 +10,46 @@ class Header extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      logo: logo,
-      expanded:true,
+      logoSmall: logoSmall,
+      logoLarge: logoLarge,
     }
   }
 
   render(){
     return(
-      <div className="header outer">
+      <div className={"header " + (this.props.headerExpanded ? 'header-large ' : 'header-small ')}>
         <Link  className="logo" to="/" >
-          <img src={this.state.logo} />
+          <img className="logo-large" src={this.state.logoLarge} />
+          <img className="logo-small" src={this.state.logoSmall} />
         </Link>
-        <Menu />
+        <Tags 
+          tags={this.props.tags} 
+          selectTag={this.props.selectTag} 
+          deselectTag={this.props.deselectTag}
+          selectedTag={this.props.selectedTag} />
       </div>
     )
   }
 }
 
-class Menu extends React.Component {
+class Tags extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: [
-        {
-          name:'Contextual',
-          color:'#007FFF',
-          key:0,
-          selected: false,
-        },
-        {
-          name:'Reviews',
-          color:'#009844',
-          key:1,
-          selected: false,
-        },
-        {
-          name:'Inspiration',
-          color:'#E329E3',
-          key:2,
-          selected: false,
-        },
-        {
-          name:'Portfolio',
-          color:'#FAAF33',
-          key:3,
-          selected: false,
-        },
-      ]
+      tags: this.props.tags,
     }
-
-    this.markTag = this.markTag.bind(this)
-
   }
   
-  //local functions
-
-  markTag(id) {
-    let newState = {...this.state}
-    newState.tags[id] = {...this.state.tags[id], selected: !this.state.tags[id].selected} 
-    this.setState(newState)
-  }
-
   render(){
     return(
-      <div className="menu">
+      <div className="tags outer">
       {this.state.tags.map((tag) =>
-        <Tag  name={tag.name} 
+        <Tag  tag={tag} 
+              id={tag.key}
               key={tag.key} 
-              id={tag.key} 
-              selected={tag.selected} 
-              color={tag.color} 
-              markTag={this.markTag} />
+              selectedTag={this.props.selectedTag}  
+              selectTag={this.props.selectTag}
+              deselectTag={this.props.deselectTag} />
       )}
       </div>
     )
@@ -91,24 +61,32 @@ class Tag extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tag: this.props
+      name: this.props.tag.name,
+      color: this.props.tag.color,
     }
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setState({ tag: nextProps})
   }
 
   render(){
     return(
       <button  
         style={{
-          backgroundColor: (this.state.tag.selected ? this.state.tag.color : '')
+          backgroundColor: ((this.props.selectedTag == this.props.id) ? this.state.color : '')
         }}
-        className={"tag " + (this.state.tag.selected ? 'selected ' : '')} 
-        onClick={() => this.props.markTag(this.state.tag.id)} 
+        className={"tag " + ((this.props.selectedTag == this.props.id) ? 'selected ' : '')} 
+        onClick={(e) => {
+          (this.props.selectedTag == this.props.id) ? this.props.deselectTag() : this.props.selectTag(this.props.id)
+          e.stopPropagation()
+        }} 
         >
-        <p>{this.state.tag.name}</p>
-        <img className="closeIcon icon" src={iconClose}/>
+        <p>{this.state.name}</p>
+        <button 
+          className="deselectTag"
+          onClick={(e) => {
+            this.props.deselectTag()
+            e.stopPropagation()
+          }} >
+          <img className="closeIcon icon inverse " src={iconClose}/>
+        </button>
       </button>
     )
   }
