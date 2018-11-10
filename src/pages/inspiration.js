@@ -1,26 +1,26 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Post from '../layouts/post'
+import PostRankless from '../layouts/post-rankless'
 
-const IndexPage = ({data}) => (
+const InspirationPage = ({data}) => (
   <div className="articles">
     {data.allMarkdownRemark.edges.map(post => (
-      <Post post={post} key={post.id} />
+      <PostRankless post={post} key={post.id} />
     ))}
   </div>
 )
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query InspirationQuery {
     allMarkdownRemark(
       limit: 10
       sort: { fields: [frontmatter___date], order: ASC }
-      filter: { frontmatter: { published: { eq: true } } }
+      filter: { frontmatter: { tag: {eq: "Inspiration"} } }
     ) {
       edges {
           node {
             html
-            id 
+            id
               frontmatter {
                   title
                   path
@@ -45,4 +45,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default IndexPage
+export default InspirationPage
