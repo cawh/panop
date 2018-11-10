@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link'
 import Helmet from 'react-helmet';
 
 export default function Template({data}) {
@@ -22,18 +23,22 @@ export default function Template({data}) {
     }
 
     return (
-        <div className="post">
-            <div className="post-header">
-                <div className="outer">
-                    <div>
-                        <h1>{post.frontmatter.title}</h1>
-                        <h5 className="author">{post.frontmatter.author}</h5>
-                        <h5 className="tag">{post.frontmatter.tag}</h5>
+        <div className="articles">
+            <div className="article-container">
+                <div className="post">
+                    <div className="post-header">
+                            <div>
+                                <h1>{post.frontmatter.title}</h1>
+                                <h5 className="author">{post.frontmatter.author}</h5>
+                                <h5 className="tag">{post.frontmatter.tag}</h5>
+                            </div>
                     </div>
+                    <div className="imgContain">
+                        <img src={post.frontmatter.thumbnail.childImageSharp.sizes.src} />
+                    </div>
+                    <div className="post-content" dangerouslySetInnerHTML={{__html: post.html}}/>
                 </div>
             </div>
-            <img src={post.frontmatter.thumbnail.childImageSharp.sizes.src} />
-            <div dangerouslySetInnerHTML={{__html: post.html}}/>
         </div>
     )
 }

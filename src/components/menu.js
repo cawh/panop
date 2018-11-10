@@ -6,7 +6,7 @@ import iconChevronLeft from '../assets/icon/chevron-left.svg'
 import iconChevronRight from '../assets/icon/chevron-Right.svg'
 import iconClose from '../assets/icon/close.svg'
 
-class Header extends React.Component {
+class Menu extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -17,11 +17,27 @@ class Header extends React.Component {
 
   render(){
     return(
-      <div className={"header " + (this.props.headerExpanded ? 'header-large ' : 'header-small ')}>
-        <Link  className="logo" to="/" >
+      <div className={"menu "}>
+        <Link   className="logo" 
+                to="/"  
+                onClick={(e) => {
+                  (this.props.selectedTag == this.props.id) 
+                  ? this.props.deselectTag() 
+                  : this.props.selectTag(this.props.id)
+                e.stopPropagation()
+                }}  >
           <img className="logo-large" src={this.state.logoLarge} />
           <img className="logo-small" src={this.state.logoSmall} />
         </Link>
+        {this.props.tags.map((tag) =>
+          (tag.key === this.props.selectedTag) ? (<p style={{color: (tag.color), backgroundColor:(tag.backgroundColor)}} className="selectedTag">{tag.name}</p>) : ''
+        )}
+
+        <button className="mobile-menu-toggle" onClick={this.props.toggleMobileMenu}>
+          <div className="bar-1"></div>
+          <div className="bar-2"></div>
+          <div className="bar-3"></div>
+        </button>
         <Tags 
           tags={this.props.tags} 
           selectTag={this.props.selectTag} 
@@ -42,11 +58,12 @@ class Tags extends React.Component {
   
   render(){
     return(
-      <div className="tags outer">
+      <div className="tags">
       {this.state.tags.map((tag) =>
         <Tag  tag={tag} 
               id={tag.key}
-              key={tag.key} 
+              key={tag.key}
+              url={tag.url} 
               selectedTag={this.props.selectedTag}  
               selectTag={this.props.selectTag}
               deselectTag={this.props.deselectTag} />
@@ -68,29 +85,21 @@ class Tag extends React.Component {
 
   render(){
     return(
-      <button  
+      <Link to={this.props.tag.url}
         style={{
           backgroundColor: ((this.props.selectedTag == this.props.id) ? this.state.color : '')
         }}
         className={"tag " + ((this.props.selectedTag == this.props.id) ? 'selected ' : '')} 
         onClick={(e) => {
-          (this.props.selectedTag == this.props.id) ? this.props.deselectTag() : this.props.selectTag(this.props.id)
+          this.props.selectTag(this.props.id)
           e.stopPropagation()
         }} 
         >
-        <p>{this.state.name}</p>
-        <button 
-          className="deselectTag"
-          onClick={(e) => {
-            this.props.deselectTag()
-            e.stopPropagation()
-          }} >
-          <img className="closeIcon icon inverse " src={iconClose}/>
-        </button>
-      </button>
+        <h4>{this.state.name}</h4>
+      </Link>
     )
   }
 }
 
-export default Header
+export default Menu
 

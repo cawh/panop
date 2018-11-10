@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
+import Menu from '../components/menu'
 import Footer from '../components/footer'
 import './light-mode.scss'
 import * as functions from '../functions/functions'
@@ -11,62 +11,72 @@ class Layout extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      headerExpanded: true,
       selectedTag: 10,
+      mobileMenuOpen: false,
       tags: [
         {
-          name:'Contextual',
+          name:'Articles',
+          url: '/Articles',
           color:'#007FFF',
+          backgroundColor:'#CCE5FF',
           key:0,
           selected: false,
         },
         {
           name:'Reviews',
+          url: '/reviews',
           color:'#009844',
+          backgroundColor:'#CCEAD9',
           key:1,
           selected: false,
         },
         {
           name:'Inspiration',
+          url: '/inspiration',
           color:'#E329E3',
+          backgroundColor:'#F9D4F9',
           key:2,
           selected: false,
         },
         {
           name:'Portfolio',
+          url: '/portfolio',
           color:'#FAAF33',
+          backgroundColor:'#FEEFD6',
           key:3,
+          selected: false,
+        },
+        {
+          name:'Store',
+          url: '/store',
+          color:'#F82323',
+          backgroundColor:'#FDD3D3',
+          key:4,
           selected: false,
         },
       ]
     }
     functions.selectTag = functions.selectTag.bind(this)
     functions.deselectTag = functions.deselectTag.bind(this)
-    functions.handleScroll = functions.handleScroll.bind(this)
+    functions.toggleMobileMenu = functions.toggleMobileMenu.bind(this)
   }
 
   //life cycle event handlers
   componentDidMount() {
-    window.addEventListener('scroll', functions.handleScroll);
     
     var today = new Date().getHours();
-    if (today >= 7 && today <= 18) {
+    if (today >= 7 && today <= 16) {
       require ('./light-mode.scss');
     } 
     else {
-      require ('./dark-mode.scss');
+      require ('./light-mode.scss');
     }
   }
-
-  componentWillUnmount() {
-      window.removeEventListener('scroll', functions.handleScroll);
-  }
-  
 
   render() {
     const { children, data } = this.props;
     return (
-      <div>
+      <div className="contain-all">
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -74,22 +84,19 @@ class Layout extends React.Component {
             { name: 'keywords', content: 'design blog contextual inspiration portfolio industrial product service UX UI current' },
           ]}
         />
-        <Header 
-          headerExpanded={this.state.headerExpanded}
-          selectTag={functions.selectTag} 
-          deselectTag={functions.deselectTag}
-          tags={this.state.tags} 
-          selectedTag={this.state.selectedTag} 
-          siteTitle={data.site.siteMetadata.title} />
-        <div className='outer '>
-          <div className={'articles ' 
-          + (this.state.headerExpanded 
-          ? '' 
-          : 'articles-header-small ')}>
-            {children()}
-          </div>
+        <div className={"nav " + ((this.state.mobileMenuOpen) ? "open " : "")}>
+          <Menu
+            headerExpanded={this.state.headerExpanded}
+            selectTag={functions.selectTag} 
+            deselectTag={functions.deselectTag}
+            toggleMobileMenu={functions.toggleMobileMenu}
+            tags={this.state.tags} 
+            selectedTag={this.state.selectedTag} 
+            siteTitle={data.site.siteMetadata.title} 
+            />
+          <Footer />
         </div>
-        <Footer />
+            {children()}
       </div>
     )
   }

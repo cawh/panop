@@ -1,12 +1,12 @@
 ---
 path: '/fourth-post'
-title: 'Fourth Blog Post'
+title: 'Throwing gang signs with Lawson McClean' 
 published: true
 date: '2018-08-14'
 author: 'Caleb Whitmore'
 tag: 'Portfolio'
-ranking: '3'
-thumbnail: './thumbnail.jpg'
+ranking: '1'
+thumbnail: './thumbnail.png'
 ---
 
 Hello this is our fourth blog post

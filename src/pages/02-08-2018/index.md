@@ -1,12 +1,12 @@
 ---
 path: '/first-post'
-title: 'Inside the 23 dimensional world of your cars paint job'
+title: 'Nathan looking sxc as fuuuuuuuu'
 published: true
 date: '2018-08-01'
 author: 'Nathan Lawson McClean'
 tag: 'Contextual'
 ranking: '1'
-thumbnail: './thumbnail.jpg'
+thumbnail: './thumbnail.png'
 ---
 
 But Facebook says it's harder to assign blame now than it was last year when the company discovered the IRA-linked accounts. In that case, the group got sloppy with its work, paying for ads in rubles and revealing its Russian IP addresses. The actors behind this campaign have used VPNs to hide their locations and paid third parties to purchase ads on their behalf. All together,the newly discovered pages and accounts bought 150 ads for approximately $11,000, the most recent of which was purchased in June 2018.
