@@ -18,7 +18,7 @@ $neutral-darker:#d0d0d0;
 $neutral-darkest:#ffffff;
 $neutral-light:#808080;
 $neutral-lighter:#404040;
-$neutral-lightest:#141414;
+$neutral-lightest:#151515;
 
 $theme-green: #009844;
 $theme-blue: #007FFF;
@@ -60,7 +60,11 @@ $outline-dark: rgba(255,255,255,0.16);
 
 
 .logo {
-  filter: invert(1);
+  user-select: none;
+  img {
+    filter: invert(100%);
+    -webkit-filter:invert(100%);
+  }
 }
 
 .inset-shadow {
@@ -71,10 +75,6 @@ $outline-dark: rgba(255,255,255,0.16);
     box-shadow: inset 0px 0.5px 4px 0px rgba(0,0,0,0.8);
     cursor: pointer;
   }
-}
-
-.inverse {
-  filter: invert(0);
 }
 
 @mixin shadow-medium {

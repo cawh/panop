@@ -63,7 +63,6 @@ class Layout extends React.Component {
 
   //life cycle event handlers
   componentDidMount() {
-    
     var today = new Date().getHours();
     if (today >= 7 && today <= 16) {
       require ('./light-mode.scss');

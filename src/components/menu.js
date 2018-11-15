@@ -1,6 +1,9 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import logoLarge from '../assets/logo/logo-large.svg'
+import panopLogoLayer1 from '../assets/logo/layers/panop-logo-layer-light-01.svg'
+import panopLogoLayer2 from '../assets/logo/layers/panop-logo-layer-light-02.svg'
+import panopLogoLayer3 from '../assets/logo/layers/panop-logo-layer-light-03.svg'
+
 import logoSmall from '../assets/logo/logo-small.svg'
 import iconChevronLeft from '../assets/icon/chevron-left.svg'
 import iconChevronRight from '../assets/icon/chevron-Right.svg'
@@ -11,7 +14,6 @@ class Menu extends React.Component {
     super(props);
     this.state = {
       logoSmall: logoSmall,
-      logoLarge: logoLarge,
     }
   }
 
@@ -26,7 +28,11 @@ class Menu extends React.Component {
                   : this.props.selectTag(this.props.id)
                 e.stopPropagation()
                 }}  >
-          <img className="logo-large" src={this.state.logoLarge} />
+          <div className="logo-large">
+            <img className="layer1" src={panopLogoLayer1} />
+            <img className="layer2" src={panopLogoLayer2} />
+            <img className="layer3" src={panopLogoLayer3} />
+          </div>
           <img className="logo-small" src={this.state.logoSmall} />
         </Link>
         {this.props.tags.map((tag) =>

@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Post from '../layouts/post'
 
-const IndexPage = ({data}) => (
+const Page2 = ({data}) => (
   <div className="articles">
     {data.allMarkdownRemark.edges.map(post => (
       <Post post={post} key={post.id} />
@@ -11,9 +11,10 @@ const IndexPage = ({data}) => (
 )
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query page2Query {
     allMarkdownRemark(
-      limit: 10
+      skip: 1
+      limit: 1
       sort: { fields: [frontmatter___date], order: ASC }
       filter: { frontmatter: { published: { eq: true } } }
     ) {
@@ -45,4 +46,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default IndexPage
+export default Page2
