@@ -9,18 +9,18 @@ class Post extends React.Component {
   
     render() {
       return(
-        <div className={"article-container ranking-" + this.props.post.node.frontmatter.ranking} >
+        <div className={"article-container ranking-" + this.props.post.frontmatter.ranking} >
           <Link  
-            key={this.props.post.node.id}
-            to={this.props.post.node.frontmatter.path}
+            key={this.props.post.id}
+            to={this.props.post.frontmatter.path}
             className="article shadow ">
             <div className="article-image">
-              <img src={this.props.post.node.frontmatter.thumbnail.childImageSharp.sizes.src}/>
+              <img src={this.props.post.frontmatter.thumbnail.childImageSharp.sizes.src}/>
             </div>
             <div className="article-details">
-              <h1>{this.props.post.node.frontmatter.title}</h1>
-              <h5 className="author">{this.props.post.node.frontmatter.author}</h5>
-              <h5 className="tag">{this.props.post.node.frontmatter.tag}</h5>
+              <h1>{this.props.post.frontmatter.title}</h1>
+              <h5 className="author">{this.props.post.frontmatter.author}</h5>
+              <h5 className="tag">{this.props.post.frontmatter.tag}</h5>
             </div>
           </Link>
         </div>

@@ -21,8 +21,9 @@ $neutral-dark:#383838;
 $neutral-darker:#242424;
 $neutral-darkest:#101010;
 $neutral-light:#9a9a9a;
-$neutral-lighter:#eaeaea;
-$neutral-lightest:#f1f1f1;
+$neutral-lighter:#dadada;
+$neutral-lightest:#eaeaea;
+
 
 //colors - themes
 
@@ -118,10 +119,6 @@ $outline-dark: rgba(0,0,0,0.24);
     box-shadow: inset 0px 0.5px 4px 0px rgba(0,0,0,0.12);
     cursor: pointer;
   }
-}
-
-.inverse {
-  filter: invert(1);
 }
 
 @import './index.scss'

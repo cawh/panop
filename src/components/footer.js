@@ -46,7 +46,7 @@ class Footer extends React.Component {
 
         return(
             <div className="footer ">
-                <div className="externalLinks">
+                <div className="external-links">
                     {this.state.links.map((externalLink) =>
                         <ExternalLink externalLink={externalLink} key={externalLink.key} />
                     )}
@@ -60,7 +60,7 @@ class Footer extends React.Component {
 class ExternalLink extends React.Component {
     render(){
         return(
-            <a className="externalLink " target="_blank" href={this.props.externalLink.url}>
+            <a className="external-link " target="_blank" href={this.props.externalLink.url}>
                 <img className="icon" src={this.props.externalLink.image} />
             </a>
         )
