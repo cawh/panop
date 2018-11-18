@@ -4,7 +4,7 @@ title: 'Nathan looking sxc as fuuuuuuuu'
 published: true
 date: '2018-08-01'
 author: 'Nathan Lawson McClean'
-tag: 'Contextual'
+tag: 'article'
 ranking: '1'
 thumbnail: './thumbnail.png'
 ---

@@ -4,7 +4,7 @@ title: 'Nathan staring intently at his foxy love'
 published: true
 date: '2018-08-04'
 author: 'Caleb Whitmore'
-tag: 'Inspiration'
+tag: 'inspiration'
 ranking: '2'
 thumbnail: './thumbnail.png'
 ---

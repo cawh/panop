@@ -2,9 +2,9 @@
 path: '/fourth-post'
 title: 'Throwing gang signs with Lawson McClean' 
 published: true
-date: '2018-08-14'
+date: '2019-08-14'
 author: 'Caleb Whitmore'
-tag: 'portfolio'
+tag: 'store'
 ranking: '2'
 thumbnail: './thumbnail.png'
 ---

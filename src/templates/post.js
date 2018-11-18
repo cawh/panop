@@ -23,20 +23,20 @@ export default function Template({data}) {
     }
 
     return (
-        <div className="articles">
-            <div className="article-container">
-                <div className="post">
-                    <div className="post-header">
+        <div className="posts">
+            <div className="post-container">
+                <div className="post-open">
+                    <div className="post-open-header">
                             <div>
                                 <h1>{post.frontmatter.title}</h1>
                                 <h5 className="author">{post.frontmatter.author}</h5>
-                                <h5 className="tag">{post.frontmatter.tag}</h5>
+                                <h5 className={"tag tag-" + post.frontmatter.tag}>{post.frontmatter.tag}</h5>
                             </div>
                     </div>
                     <div className="imgContain">
                         <img src={post.frontmatter.thumbnail.childImageSharp.sizes.src} />
                     </div>
-                    <div className="post-content" dangerouslySetInnerHTML={{__html: post.html}}/>
+                    <div className="post-open-content" dangerouslySetInnerHTML={{__html: post.html}}/>
                 </div>
             </div>
         </div>

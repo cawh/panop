@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Post from '../layouts/post'
+import PostRankless from '../layouts/post-rankless';
 
 const NavLink = props => {
   if (!props.test) {
@@ -18,7 +18,7 @@ const IndexPage = ({ data, pathContext }) => {
   return(
     <div className="posts">
       {group.map(({ node }) => (
-        <Post post={node} key={node.id} />
+        <PostRankless post={node} key={node.id} />
       ))}
 
       <div className="page-navigation">

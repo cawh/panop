@@ -5,9 +5,6 @@ import panopLogoLayer2 from '../assets/logo/layers/panop-logo-layer-light-02.svg
 import panopLogoLayer3 from '../assets/logo/layers/panop-logo-layer-light-03.svg'
 
 import logoSmall from '../assets/logo/logo-small.svg'
-import iconChevronLeft from '../assets/icon/chevron-left.svg'
-import iconChevronRight from '../assets/icon/chevron-Right.svg'
-import iconClose from '../assets/icon/close.svg'
 
 class Menu extends React.Component {
   constructor(props){
