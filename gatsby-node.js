@@ -207,7 +207,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         result.data.allPosts.edges.map(({ node }) => {
           createPage({
             path: node.frontmatter.path,
-            component: path.resolve("./src/templates/post.js"),
+            component: path.resolve("./src/templates/post-open.js"),
           });
         });
         resolve();

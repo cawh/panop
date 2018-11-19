@@ -2,123 +2,29 @@
 
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
-//functions
-
-@function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
-}
-
-@function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
-}
-
 //colors - neutral
 
-$black: #000000;
-$white: #ffffff;
-$neutral:#717171;
-$neutral-dark:#383838;
-$neutral-darker:#242424;
-$neutral-darkest:#101010;
-$neutral-light:#9a9a9a;
-$neutral-lighter:#dadada;
-$neutral-lightest:#eaeaea;
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --neutral: #717171;
+  --neutral-dark: #252323;
+  --neutral-darker: $#202020;
+  --neutral-darkest: #101010;
+  --neutral-light: #9a9a9a;
+  --neutral-lighter: #dadada;
+  --neutral-lightest: #eaeaea;
 
+  --theme-green: #009844;
+  --theme-blue: #007FFF;
+  --theme-pink: #E329E3;
+  --theme-red: #F82323;
+  --theme-yellow: #FAAF33;
 
-//colors - themes
+  --overlay-dark-24: rgba(0, 0, 0, 0.24);
+  --overlay-light-24: rgba(255, 255, 255, 0.24);
 
-$theme-green: #009844;
-$theme-blue: #007FFF;
-$theme-pink: #E329E3;
-$theme-red: #F82323;
-$theme-yellow: #FAAF33;
-
-$overlay-dark-24: rgba(0,0,0,0.24);
-$overlay-light-24: rgba(255,255,255,0.24);
-
-$outline: rgba(0,0,0,0.12);
-$outline-dark: rgba(0,0,0,0.24);
-
-.outer {
-  max-width:960px;
-  margin: 0px auto;
-}
-
-.outer-small {
-  max-width:640px;
-  margin: 0px auto;
-}
-
-.transition30 {
-  transition:0.3s all ease;
-  -webkit-transition:0.3s all ease;
-}
-
-.transition20 {
-  transition:0.2s all ease;
-  -webkit-transition:0.2s all ease;
-}
-
-.transition10 {
-  transition:0.1s all ease;
-  -webkit-transition:0.1s all ease;
-}
-
-.icon {
-  width:16px;
-  height:16px;
-}
-
-@mixin shadow-medium {
-  box-shadow: rgba(45,45,45,0.05) 0px 2px 2px, rgba(49,49,49,0.05) 0px 4px 4px, rgba(42,42,42,0.05) 0px 8px 8px, rgba(32,32,32,0.05) 0px 16px 16px, rgba(49,49,49,0.08) 0px 0px 32px;
-}
-
-%shadow-medium {
-  @include shadow-medium;
-}
-
-.shadow-medium {
-  @extend %shadow-medium;
-}
-
-@mixin shadow-small {
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.05);
-}
-
-%shadow-small {
-  @include shadow-small;
-}
-
-.shadow-small {
-  @extend %shadow-small;
-}
-
-.hover-shadow-small { 
-  &:hover {
-    @extend .shadow-small;
-    cursor: pointer;
-    transform: translate(0px,-2px);
-  }
-}
-
-.hover-shadow-medium { 
-  z-index: 10;
-  &:hover {
-    @extend .shadow-medium;
-    cursor: pointer;
-    transform: translate(0px,-3px);
-  }
-}
-
-
-.inset-shadow {
-  @extend .transition30;
-  box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.12);
-
-  &:hover {
-    box-shadow: inset 0px 0.5px 4px 0px rgba(0,0,0,0.12);
-    cursor: pointer;
-  }
+  --shadow: rgba(45, 45, 45, 0.05) 0px 2px 2px, rgba(49, 49, 49, 0.05) 0px 4px 4px, rgba(42, 42, 42, 0.05) 0px 8px 8px, rgba(32, 32, 32, 0.05) 0px 16px 16px, rgba(49, 49, 49, 0.08) 0px 0px 32px;
 }
 
 @import './index.scss'

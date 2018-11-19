@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import { timingSafeEqual } from 'crypto';
+import './footer.scss'
 
 import BehanceLogo from '../assets/icon/links/behance.svg'
 import InstagramLogo from '../assets/icon/links/instagram.svg'
@@ -61,7 +62,7 @@ class ExternalLink extends React.Component {
     render(){
         return(
             <a className="external-link " target="_blank" href={this.props.externalLink.url}>
-                <img className="icon" src={this.props.externalLink.image} />
+                <img className="icon inverse" src={this.props.externalLink.image} />
             </a>
         )
     }

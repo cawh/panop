@@ -16,7 +16,7 @@ class Layout extends React.Component {
       tags: [
         {
           name:'Articles',
-          url: '/articles/',
+          url: '/articles',
           color:'#007FFF',
           backgroundColor:'#CCE5FF',
           key:0,
@@ -24,7 +24,7 @@ class Layout extends React.Component {
         },
         {
           name:'Reviews',
-          url: '/reviews/',
+          url: '/reviews',
           color:'#009844',
           backgroundColor:'#CCEAD9',
           key:1,
@@ -32,7 +32,7 @@ class Layout extends React.Component {
         },
         {
           name:'Inspiration',
-          url: '/inspiration/',
+          url: '/inspiration',
           color:'#E329E3',
           backgroundColor:'#F9D4F9',
           key:2,
@@ -40,7 +40,7 @@ class Layout extends React.Component {
         },
         {
           name:'Portfolio',
-          url: '/portfolio/',
+          url: '/portfolio',
           color:'#FAAF33',
           backgroundColor:'#FEEFD6',
           key:3,
@@ -48,7 +48,7 @@ class Layout extends React.Component {
         },
         {
           name:'Store',
-          url: '/store/',
+          url: '/store',
           color:'#F82323',
           backgroundColor:'#FDD3D3',
           key:4,
@@ -64,11 +64,35 @@ class Layout extends React.Component {
   //life cycle event handlers
   componentDidMount() {
     var today = new Date().getHours();
-    if (today >= 7 && today <= 16) {
-      require ('./dark-mode.scss');
+    if (today >= 7 && today <= 18) {
+      require ('./light-mode.scss');
     } 
     else {
-      require ('./dark-mode.scss');
+      require ('./light-mode.scss');
+    }
+
+    function getLastPart(url) {
+      var parts = url.split("/");
+      return (url.lastIndexOf('/') !== url.length - 1 
+         ? parts[parts.length - 1]
+         : parts[parts.length - 2]);
+    }
+    var lastPart = getLastPart(window.location.href)
+
+    if (lastPart === "articles") {
+      functions.selectTag(0)
+    }
+    if (lastPart === "reviews") {
+      functions.selectTag(1)
+    }
+    if (lastPart === "inspiration") {
+      functions.selectTag(2)
+    }
+    if (lastPart === "portfolio") {   
+      functions.selectTag(3)
+    }
+    if (lastPart === "store") {
+      functions.selectTag(4)
     }
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import './post.scss'
 
 class Post extends React.Component {
 
