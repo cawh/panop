@@ -1,7 +1,11 @@
 .post-article {
   .post-image {
     background-color: var(--theme-blue);
-    background-image: url('../assets/icon/sections/articles.svg')
+    background-image: url('../assets/icon/sections/articles.svg');
+
+    img {
+      background-color: var(--theme-blue);
+    }
   }
 
   .post-details {
@@ -11,10 +15,14 @@
   }
 }
 
-.post-reviews {
+.post-review {
   .post-image {
     background-color: var(--theme-green);
     background-image: url('../assets/icon/sections/reviews.svg');
+
+    img {
+      background-color: var(--theme-green);
+    }
   }
 
   .post-details {
@@ -28,11 +36,15 @@
   .post-image {
     background-color: var(--theme-pink);
     background-image: url('../assets/icon/sections/inspiration.svg');
+
+    img {
+      background-color: var(--theme-pink);
+    }
   }
 
   .post-details {
     .tag {
-      color: --theme-pink;
+      color: var(--theme-pink);
     }
   }
 }
@@ -41,6 +53,10 @@
   .post-image {
     background-color: var(--theme-yellow);
     background-image: url('../assets/icon/sections/portfolio.svg');
+
+    img {
+      background-color: var(--theme-yellow);
+    }
   }
 
   .post-details {
@@ -53,7 +69,11 @@
 .post-store {
   .post-image {
     background-color: var(--theme-red);
-    background-image: url('../assets/icon/sections/store.svg')
+    background-image: url('../assets/icon/sections/store.svg');
+    
+    img {
+      background-color: var(--theme-red);
+    }
   }
 
   .post-details {
@@ -69,6 +89,7 @@
   float: right;
   position: relative;
   overflow: visible;
+  animation: fadeUp 0.3s ease forwards;
 
   a {
     display: grid;
@@ -124,6 +145,7 @@
         background-size: 120px 120px;
         background-repeat: no-repeat;
 
+
         img {
           width: 100%;
           min-height: 100%;
@@ -134,9 +156,8 @@
           left: 50%;
           transform: translate(-50%, -50%);
           opacity: 0;
-          animation: fadeIn 0.3s forwards;
+          animation: fadeIn 0.6s forwards;
           animation-delay: 0.5s;
-          display: none;
         }
       }
 
@@ -147,7 +168,7 @@
     width: 100%;
 
     .post {
-      height: 400px;
+      height: 600px;
 
       .post-details {
         h1 {
@@ -173,13 +194,50 @@
         .post-image {
           overflow: hidden;
 
+         
+        }
+      }
+    }
+
+    .ranking-1,
+    .ranking-2 {
+      width: 100%;
+
+      .post {
+        display: block;
+
+        .post-details {
+          margin: 0px 0px 0px 0px;
+
+          h1 {
+            margin: -4px 0px 12px 0px;
+            font-size: 24px;
+            line-height: 30px;
+          }
+
+          .author {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .posts {
+    width: 100%;
+    margin-bottom: 68px;
+
+    .post-container {
+      .post {
+        height: auto;
+
+        .post-image {
+          overflow: hidden;
+
           img {
-            min-height: 100%;
-            min-width: 100%;
-            align-self: center;
-            position: relative;
-            left: 50%;
-            transform: translate(-50%, 0);
+           
           }
         }
       }
@@ -210,51 +268,14 @@
   }
 }
 
-@media only screen and (max-width: 680px) {
-  .posts {
-    width: 100%;
-    margin-bottom: 68px;
-
-    .post-container {
-      .post {
-        height: auto;
-
-        .post-image {
-          overflow: hidden;
-
-          img {
-            min-height: 100%;
-            min-width: 100%;
-            align-self: center;
-            position: relative;
-            left: 50%;
-            transform: translate(-50%, 0);
-          }
-        }
-      }
-    }
-
-    .ranking-1,
-    .ranking-2 {
-      width: 100%;
-
-      .post {
-        display: block;
-
-        .post-details {
-          margin: 0px 0px 0px 0px;
-
-          h1 {
-            margin: -4px 0px 12px 0px;
-            font-size: 24px;
-            line-height: 30px;
-          }
-
-          .author {
-            margin-bottom: 0px;
-          }
-        }
-      }
-    }
+@keyframes fadeUp {
+  0% {
+      transform:scale(0.96) ;
+      transform-origin: top center;
+      opacity:0;
+  }
+  100% {
+      transform:scale(1);
+      opacity:1;
   }
 }

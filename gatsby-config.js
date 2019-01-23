@@ -21,6 +21,21 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
-    `gatsby-plugin-sharp`
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: false,
+        stripMetadata: true,
+        quality:100,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+          rule: {
+            include: /src/
+          }
+      }
+    },
   ],
 }

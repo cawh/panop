@@ -19,7 +19,7 @@ export default function Template({data}) {
                             </div>
                     </div>
                     <div className="imgContain">
-                        <img src={post.frontmatter.thumbnail.childImageSharp.sizes.src} />
+                        <img src={post.frontmatter.postImage.childImageSharp.sizes.src} />
                     </div>
                     <div className="post-open-content" dangerouslySetInnerHTML={{__html: post.html}}/>
                 </div>
@@ -37,9 +37,9 @@ export const postQuery = graphql`
                 title
                 author
                 tag
-                thumbnail {
+                postImage {
                     childImageSharp {
-                        sizes(maxWidth: 624) {
+                        sizes(maxWidth: 1200) {
                             src
                             srcSet
                             sizes   

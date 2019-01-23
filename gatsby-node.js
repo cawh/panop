@@ -19,7 +19,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                                     ranking
                                     thumbnail {
                                         childImageSharp {
-                                            sizes(maxWidth: 624) {
+                                            sizes(maxWidth: 2000) {
                                                 src
                                                 srcSet
                                                 sizes   
@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                                     ranking
                                     thumbnail {
                                         childImageSharp {
-                                            sizes(maxWidth: 624) {
+                                            sizes(maxWidth: 2000) {
                                                 src
                                                 srcSet
                                                 sizes   
@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                             }
                         }
                     }
-                    reviewsPosts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC } filter: { frontmatter: { tag: {eq: "reviews"} } }) {
+                    reviewsPosts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC } filter: { frontmatter: { tag: {eq: "review"} } }) {
                         edges {
                             node {
                                 html
@@ -69,7 +69,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                                     ranking
                                     thumbnail {
                                         childImageSharp {
-                                            sizes(maxWidth: 624) {
+                                            sizes(maxWidth: 2000) {
                                                 src
                                                 srcSet
                                                 sizes   
@@ -94,7 +94,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                                     ranking
                                     thumbnail {
                                         childImageSharp {
-                                            sizes(maxWidth: 624) {
+                                            sizes(maxWidth: 2000) {
                                                 src
                                                 srcSet
                                                 sizes   
@@ -119,7 +119,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                                     ranking
                                     thumbnail {
                                         childImageSharp {
-                                            sizes(maxWidth: 624) {
+                                            sizes(maxWidth: 2000) {
                                                 src
                                                 srcSet
                                                 sizes   
@@ -144,7 +144,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                                     ranking
                                     thumbnail {
                                         childImageSharp {
-                                            sizes(maxWidth: 624) {
+                                            sizes(maxWidth: 2000) {
                                                 src
                                                 srcSet
                                                 sizes   

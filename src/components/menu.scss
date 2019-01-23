@@ -60,11 +60,11 @@
           margin: 0px;
           opacity: 1;
           transition: none;
+          transition: 0.3s all ease;
         }
 
         .layer1 {
           z-index: 2;
-          transition: 0.3s all ease;
         }
 
         .layer2 {
@@ -129,7 +129,7 @@
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 800px) {
   .nav {
     position: fixed;
     z-index: 11;
@@ -200,12 +200,12 @@
       }
 
       .mobile-menu-toggle {
+        display:inline-block;
         width: 36px;
         height: 36px;
         position: absolute;
         top: 0px;
         right: 8px;
-        display:block;
 
         .bar-1,
         .bar-2,
