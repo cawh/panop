@@ -2,41 +2,26 @@ import React from 'react';
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet';
 
+import './post-open.scss'
+
 export default function Template({data}) {
     const {markdownRemark: post} = data;
 
-
-    const el = (document.getElementsByClassName('post-header'))
-    function isScrolledIntoView(el) {
-        var rect = el.getBoundingClientRect();
-        var elemTop = rect.top;
-        var elemBottom = rect.bottom;
-    
-        // Only completely visible elements return true;
-
-        var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
-        
-        // Partially visible elements return true;
-        // isVisible = elemTop < window.innerHeight && elemBottom >= 0;
-
-        return isVisible;
-    }
-
     return (
-        <div className="articles">
-            <div className="article-container">
-                <div className="post">
-                    <div className="post-header">
+        <div className="posts">
+            <div className="post-container">
+                <div className="post-open">
+                    <div className="post-open-header">
                             <div>
                                 <h1>{post.frontmatter.title}</h1>
                                 <h5 className="author">{post.frontmatter.author}</h5>
-                                <h5 className="tag">{post.frontmatter.tag}</h5>
+                                <h5 className={"tag tag-" + post.frontmatter.tag}>{post.frontmatter.tag}</h5>
                             </div>
                     </div>
                     <div className="imgContain">
-                        <img src={post.frontmatter.thumbnail.childImageSharp.sizes.src} />
+                        <img src={post.frontmatter.postImage.childImageSharp.sizes.src} />
                     </div>
-                    <div className="post-content" dangerouslySetInnerHTML={{__html: post.html}}/>
+                    <div className="post-open-content" dangerouslySetInnerHTML={{__html: post.html}}/>
                 </div>
             </div>
         </div>
@@ -52,9 +37,9 @@ export const postQuery = graphql`
                 title
                 author
                 tag
-                thumbnail {
+                postImage {
                     childImageSharp {
-                        sizes(maxWidth: 624) {
+                        sizes(maxWidth: 1200) {
                             src
                             srcSet
                             sizes   

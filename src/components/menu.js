@@ -3,11 +3,9 @@ import Link from 'gatsby-link'
 import panopLogoLayer1 from '../assets/logo/layers/panop-logo-layer-light-01.svg'
 import panopLogoLayer2 from '../assets/logo/layers/panop-logo-layer-light-02.svg'
 import panopLogoLayer3 from '../assets/logo/layers/panop-logo-layer-light-03.svg'
+import './menu.scss'
 
 import logoSmall from '../assets/logo/logo-small.svg'
-import iconChevronLeft from '../assets/icon/chevron-left.svg'
-import iconChevronRight from '../assets/icon/chevron-Right.svg'
-import iconClose from '../assets/icon/close.svg'
 
 class Menu extends React.Component {
   constructor(props){
@@ -20,7 +18,7 @@ class Menu extends React.Component {
   render(){
     return(
       <div className={"menu "}>
-        <Link   className="logo" 
+        <Link   className="logo inverse" 
                 to="/"  
                 onClick={(e) => {
                   (this.props.selectedTag == this.props.id) 
@@ -36,7 +34,7 @@ class Menu extends React.Component {
           <img className="logo-small" src={this.state.logoSmall} />
         </Link>
         {this.props.tags.map((tag) =>
-          (tag.key === this.props.selectedTag) ? (<p style={{color: (tag.color), backgroundColor:(tag.backgroundColor)}} className="selectedTag">{tag.name}</p>) : ''
+          (tag.key === this.props.selectedTag) ? (<h4 style={{color: (tag.color), backgroundColor:(tag.backgroundColor)}} className="selected-tag">{tag.name}</h4>) : ''
         )}
 
         <button className="mobile-menu-toggle" onClick={this.props.toggleMobileMenu}>

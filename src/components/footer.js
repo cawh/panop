@@ -1,11 +1,12 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import { timingSafeEqual } from 'crypto';
+import './footer.scss'
 
-import BehanceLogo from '../assets/icon/behance.svg'
-import InstagramLogo from '../assets/icon/instagram.svg'
-import DribbbleLogo from '../assets/icon/dribbble.svg'
-import TwitterLogo from '../assets/icon/twitter.svg'
+import BehanceLogo from '../assets/icon/links/behance.svg'
+import InstagramLogo from '../assets/icon/links/instagram.svg'
+import DribbbleLogo from '../assets/icon/links/dribbble.svg'
+import TwitterLogo from '../assets/icon/links/twitter.svg'
 
 class Footer extends React.Component {
     constructor(props) {
@@ -51,7 +52,7 @@ class Footer extends React.Component {
                         <ExternalLink externalLink={externalLink} key={externalLink.key} />
                     )}
                 </div>
-                <p className="copywrite">{this.state.copywrite}</p>
+                <p className="about">{this.state.copywrite}</p>
             </div>
         )
     }
@@ -61,7 +62,7 @@ class ExternalLink extends React.Component {
     render(){
         return(
             <a className="external-link " target="_blank" href={this.props.externalLink.url}>
-                <img className="icon" src={this.props.externalLink.image} />
+                <img className="icon inverse" src={this.props.externalLink.image} />
             </a>
         )
     }
